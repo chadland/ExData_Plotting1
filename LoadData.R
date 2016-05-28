@@ -7,6 +7,15 @@ get.data.project <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhouse
 download.file(get.data.project,destfile="./data/household_power_consumption.zip",method="auto")  
 zipfile.data = "household_power_consumption.zip"
 
+#Check if data folder exist
+mainDir <- getwd()
+subDir <- "data"
+
+if (file.exists(subDir)){
+} else {
+  dir.create(file.path(mainDir, subDir))
+}
+
 #Check if zip file exist
 if(!file.exists(zipfile.data)) {        
   unzip(zipfile="./data/household_power_consumption.zip",exdir="./data")
